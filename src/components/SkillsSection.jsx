@@ -73,13 +73,13 @@ export default function SkillsSection({ darkMode, lang = 'en' }) {
                     return (
                       <li 
                         key={skill.name}
-                        className={`p-2.5 rounded-xl border flex items-center justify-between text-xs transition-colors ${
+                        className={`p-2.5 rounded-xl border flex items-center justify-between gap-2.5 text-xs transition-colors ${
                           darkMode
                             ? 'bg-slate-800/40 border-slate-700/60 hover:bg-slate-800/80'
                             : 'bg-slate-50 border-slate-200 hover:bg-slate-100'
                         }`}
                       >
-                        <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                        <div className="flex items-center gap-2.5 min-w-0 flex-1">
                           {techLogo ? (
                             <span className={`p-1 rounded-md shrink-0 border ${
                               darkMode ? 'bg-slate-900/80 border-slate-700/60' : 'bg-white border-slate-200 shadow-xs'
@@ -87,15 +87,15 @@ export default function SkillsSection({ darkMode, lang = 'en' }) {
                               {techLogo}
                             </span>
                           ) : (
-                            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ml-1 mr-1.5 ${
+                            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ml-1 mr-1 ${
                               darkMode ? 'bg-indigo-400' : 'bg-indigo-500'
                             }`} />
                           )}
-                          <span className={`font-medium truncate ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>
+                          <span className={`font-medium leading-snug break-words ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>
                             {skill.name}
                           </span>
                         </div>
-                        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-md border shrink-0 ${
+                        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-md border shrink-0 self-center whitespace-nowrap ${
                           darkMode 
                             ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' 
                             : 'bg-indigo-50 text-indigo-700 border-indigo-200'

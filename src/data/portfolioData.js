@@ -635,8 +635,7 @@ export const skillsMatrix = [
       { name: "SQL & Data Modeling", level: "Advanced" },
       { name: "Python (Pandas, NumPy)", level: "Expert" },
       { name: "Workflow Automation (n8n)", level: "Advanced" },
-      { name: "BRD & RIC Technical Docs", level: "Expert" },
-      { name: "SLIK Financial Risk Analysis", level: "Proficient" }
+      { name: "BRD & RIC Technical Docs", level: "Expert" }
     ]
   },
   {
@@ -654,7 +653,7 @@ export const skillsMatrix = [
   },
   {
     category: "Management, Leadership & Strategy",
-    description: "Cross-functional project controlling, supply chain governance, human-centered design, and global public speaking.",
+    description: "Cross-functional project controlling, supply chain governance, Agile delivery, and technical communication.",
     icon: "Compass",
     items: [
       { name: "Project Management (MSI Certified)", level: "Certified" },
@@ -663,7 +662,6 @@ export const skillsMatrix = [
       { name: "Scrum & Agile Sprint Cycles", level: "Advanced" },
       { name: "Subcontractor & Vendor Mgmt", level: "Advanced" },
       { name: "Scientific Writing (IEEE)", level: "Published" },
-      { name: "International Public Speaking", level: "Awarded" },
       { name: "English Proficiency (EPRT: 510)", level: "Professional" }
     ]
   }
