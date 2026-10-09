@@ -1,6 +1,7 @@
 import React from 'react';
 import { skillsMatrix } from '../data/portfolioData';
 import { Brain, BarChart3, Code2, Compass } from 'lucide-react';
+import { getTechLogo } from './TechLogos';
 
 import { translations } from '../data/translations';
 
@@ -67,34 +68,44 @@ export default function SkillsSection({ darkMode, lang = 'en' }) {
                 </p>
 
                 <ul className="space-y-2.5">
-                  {category.items.map((skill) => (
-                    <li 
-                      key={skill.name}
-                      className={`p-2.5 rounded-xl border flex items-center justify-between text-xs transition-colors ${
-                        darkMode
-                          ? 'bg-slate-800/40 border-slate-700/60 hover:bg-slate-800/80'
-                          : 'bg-slate-50 border-slate-200 hover:bg-slate-100'
-                      }`}
-                    >
-                      <span className={`font-medium ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>
-                        {skill.name}
-                      </span>
-                      <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-md border ${
-                        darkMode 
-                          ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' 
-                          : 'bg-indigo-50 text-indigo-700 border-indigo-200'
-                      }`}>
-                        {skill.level}
-                      </span>
-                    </li>
-                  ))}
+                  {category.items.map((skill) => {
+                    const techLogo = getTechLogo(skill.name, "w-4 h-4 shrink-0");
+                    return (
+                      <li 
+                        key={skill.name}
+                        className={`p-2.5 rounded-xl border flex items-center justify-between text-xs transition-colors ${
+                          darkMode
+                            ? 'bg-slate-800/40 border-slate-700/60 hover:bg-slate-800/80'
+                            : 'bg-slate-50 border-slate-200 hover:bg-slate-100'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                          {techLogo ? (
+                            <span className={`p-1 rounded-md shrink-0 border ${
+                              darkMode ? 'bg-slate-900/80 border-slate-700/60' : 'bg-white border-slate-200 shadow-xs'
+                            }`}>
+                              {techLogo}
+                            </span>
+                          ) : (
+                            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ml-1 mr-1.5 ${
+                              darkMode ? 'bg-indigo-400' : 'bg-indigo-500'
+                            }`} />
+                          )}
+                          <span className={`font-medium truncate ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>
+                            {skill.name}
+                          </span>
+                        </div>
+                        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-md border shrink-0 ${
+                          darkMode 
+                            ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' 
+                            : 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                        }`}>
+                          {skill.level}
+                        </span>
+                      </li>
+                    );
+                  })}
                 </ul>
-              </div>
-
-              <div className={`mt-6 pt-4 border-t text-[11px] text-center ${
-                darkMode ? 'border-slate-700/40 text-slate-400' : 'border-slate-200 text-slate-500'
-              }`}>
-                Validated in production & publications
               </div>
             </div>
           );

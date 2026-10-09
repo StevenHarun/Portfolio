@@ -54,17 +54,12 @@ export default function ProofStrip({ darkMode = true, lang = 'en' }) {
           : 'bg-white border-slate-200 shadow-md backdrop-blur-xl'
       }`}>
         {/* Strip Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-700/40">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span className={`text-xs font-bold uppercase tracking-wider ${
-              darkMode ? 'text-slate-300' : 'text-slate-700'
-            }`}>
-              {t.badge}
-            </span>
-          </div>
-          <span className="text-xs text-indigo-400 font-mono font-medium">
-            {t.subtitle}
+        <div className="flex items-center gap-2 pb-4 mb-4 border-b border-slate-700/40">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span className={`text-xs font-bold uppercase tracking-wider ${
+            darkMode ? 'text-slate-300' : 'text-slate-700'
+          }`}>
+            {t.badge}
           </span>
         </div>
 
