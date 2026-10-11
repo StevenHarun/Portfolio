@@ -361,51 +361,6 @@
     );
     filter: drop-shadow(0 1px 8px rgba(107, 33, 168, 0.25));
   }
-
-  /* =========================================================
-     CONTACT SECTION - STUDIO LIGHTING & 3D INTERACTIVE CARDS
-     ========================================================= */
-  @keyframes float-gentle {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-5px);
-    }
-  }
-
-  @keyframes iridescent-glow-sweep {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  @keyframes pulse-subtle-glow {
-    0%, 100% {
-      opacity: 0.5;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.85;
-      transform: scale(1.04);
-    }
-  }
-
-  .animate-float-gentle {
-    animation: float-gentle 4.5s ease-in-out infinite;
-  }
-
-  .animate-iridescent-flow {
-    background-size: 200% auto;
-    animation: iridescent-glow-sweep 5s ease-in-out infinite;
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-subtle-glow 4s ease-in-out infinite;
-  }
 }
 
 
