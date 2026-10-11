@@ -71,36 +71,81 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
       {/* Header Container */}
       <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
         
-        {/* 1. Linear & Raycast Style Obsidian Capsule (No spinning, gentle float & specular shimmer) */}
-        <div className="relative inline-flex items-center justify-center group mb-4 sm:mb-5 select-none animate-float-gentle">
-          {/* Subtle Ambient Backglow Halo */}
-          <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-emerald-500/25 via-teal-500/20 to-cyan-500/25 blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* 1. Executive 3D Holographic Command Portal for "Get in Touch" (Zero 360° spinning - pure architectural depth & telemetry) */}
+        <div className="relative inline-block w-full max-w-xl mx-auto mb-6 text-left group">
+          {/* Ambient Luminous Halo (Breathing soft emerald/cyan glow, zero rotation) */}
+          <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-teal-500/20 blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-          {/* Obsidian Capsule Surface */}
-          <div className={`relative px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-semibold tracking-wide flex items-center gap-2 sm:gap-3 border backdrop-blur-xl transition-all duration-300 group-hover:-translate-y-0.5 shadow-lg overflow-hidden ${
+          {/* Main 3D Holographic Card Body */}
+          <div className={`relative rounded-2xl p-4 sm:p-5 border backdrop-blur-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.3)] overflow-hidden ${
             darkMode 
-              ? 'bg-slate-900/90 text-slate-100 border-emerald-500/35 shadow-[0_4px_24px_-4px_rgba(16,185,129,0.25)] group-hover:border-emerald-400/60' 
-              : 'bg-white/95 text-slate-800 border-emerald-500/35 shadow-[0_4px_24px_-4px_rgba(16,185,129,0.18)] group-hover:border-emerald-500/60'
+              ? 'bg-slate-900/85 border-emerald-500/35 shadow-[0_10px_30px_-10px_rgba(16,185,129,0.2)]' 
+              : 'bg-white/95 border-emerald-500/35 shadow-[0_10px_30px_-10px_rgba(16,185,129,0.15)]'
           }`}>
-            {/* Specular horizontal light sweep (glides smoothly on hover) */}
-            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
+            {/* Specular Horizontal Light Sheen (Smooth linear glide on hover, NO rotation) */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
 
-            {/* Live Status Pulse Radar Dot */}
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 shadow-[0_0_8px_#10b981]" />
-            </span>
+            {/* Precision Aerospace Corner Crosshairs */}
+            <div className="absolute top-2 left-2 text-[10px] font-mono text-emerald-400/60 select-none">+</div>
+            <div className="absolute top-2 right-2 text-[10px] font-mono text-emerald-400/60 select-none">+</div>
+            <div className="absolute bottom-2 left-2 text-[10px] font-mono text-emerald-400/60 select-none">+</div>
+            <div className="absolute bottom-2 right-2 text-[10px] font-mono text-emerald-400/60 select-none">+</div>
 
-            {/* Icon & Label */}
-            <div className="flex items-center gap-1.5 font-bold tracking-tight text-xs sm:text-sm">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-              <span>{t.badge}</span>
+            {/* Top Telemetry Status Bar */}
+            <div className="flex items-center justify-between text-[11px] font-mono mb-2.5 pb-2 border-b border-emerald-500/15">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_8px_#10b981]" />
+                </span>
+                <span className="font-semibold tracking-wider text-emerald-600 dark:text-emerald-400 uppercase">
+                  {lang === 'id' ? 'Saluran Terbuka • Siap Kolaborasi' : 'Live Channel • Open for Roles'}
+                </span>
+              </div>
+              <div className="hidden sm:flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+                <span>UTC+7 (WIB)</span>
+                <span>•</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">SLA &lt; 24h</span>
+              </div>
             </div>
 
-            {/* Micro Live Indicator Pill */}
-            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-              {lang === 'id' ? 'Tersedia' : 'Available'}
-            </span>
+            {/* Center Sculptural Typography: "GET IN TOUCH" */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <div className="text-[10px] uppercase font-bold tracking-[0.25em] text-slate-500 dark:text-slate-400 mb-0.5">
+                  {lang === 'id' ? 'Inisiasi Kolaborasi' : 'Direct Communication Portal'}
+                </div>
+                <div className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+                  <span>{lang === 'id' ? 'HUBUNGI SAYA' : 'GET IN TOUCH'}</span>
+                  <span className="inline-block p-1 rounded-md bg-emerald-500/15 text-emerald-400">
+                    <Sparkles className="w-4 h-4" />
+                  </span>
+                </div>
+              </div>
+
+              {/* Quick Action Micro-Pill Dock */}
+              <div className="flex items-center gap-2 self-start sm:self-center">
+                <button
+                  type="button"
+                  onClick={() => handleCopy(personalInfo.email, 'Email')}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30 transition-all hover:scale-105 active:scale-95"
+                  title="Copy Email"
+                >
+                  {copiedType === 'Email' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copiedType === 'Email' ? (lang === 'id' ? 'Tersalin!' : 'Copied!') : (lang === 'id' ? 'Salin Email' : 'Copy Email')}</span>
+                </button>
+
+                <a
+                  href={`https://wa.me/${personalInfo.phone.replace(/[^0-9]/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-500/30 transition-all hover:scale-105 active:scale-95"
+                >
+                  <span>WhatsApp</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
