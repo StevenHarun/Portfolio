@@ -363,65 +363,48 @@
   }
 
   /* =========================================================
-     CONTACT SECTION 3D & KINETIC ANIMATIONS
+     CONTACT SECTION - STUDIO LIGHTING & 3D INTERACTIVE CARDS
      ========================================================= */
-  @keyframes badge-float-3d {
+  @keyframes float-gentle {
     0%, 100% {
-      transform: perspective(600px) translateY(0px) rotateX(0deg) rotateZ(0deg);
+      transform: translateY(0px);
     }
-    25% {
-      transform: perspective(600px) translateY(-5px) rotateX(6deg) rotateZ(0.8deg);
-    }
-    75% {
-      transform: perspective(600px) translateY(-2px) rotateX(-5deg) rotateZ(-0.8deg);
+    50% {
+      transform: translateY(-5px);
     }
   }
 
-  @keyframes spin-conic-slow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes text-3d-glow-flow {
-    0% {
+  @keyframes iridescent-glow-sweep {
+    0%, 100% {
       background-position: 0% 50%;
     }
     50% {
       background-position: 100% 50%;
     }
-    100% {
-      background-position: 0% 50%;
-    }
   }
 
-  @keyframes float-subtle {
+  @keyframes pulse-subtle-glow {
     0%, 100% {
-      transform: translateY(0px);
+      opacity: 0.5;
+      transform: scale(1);
     }
     50% {
-      transform: translateY(-4px);
+      opacity: 0.85;
+      transform: scale(1.04);
     }
   }
 
-  .animate-badge-3d {
-    animation: badge-float-3d 5s ease-in-out infinite;
+  .animate-float-gentle {
+    animation: float-gentle 4.5s ease-in-out infinite;
   }
 
-  .animate-spin-conic {
-    animation: spin-conic-slow 8s linear infinite;
+  .animate-iridescent-flow {
+    background-size: 200% auto;
+    animation: iridescent-glow-sweep 5s ease-in-out infinite;
   }
 
-  .animate-text-3d-flow {
-    background-size: 250% 250%;
-    animation: text-3d-glow-flow 6s ease-in-out infinite;
-  }
-
-  .animate-float-subtle {
-    animation: float-subtle 4s ease-in-out infinite;
+  .animate-pulse-glow {
+    animation: pulse-subtle-glow 4s ease-in-out infinite;
   }
 }
 
