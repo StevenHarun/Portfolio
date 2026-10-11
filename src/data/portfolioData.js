@@ -615,13 +615,13 @@ export const skillsMatrix = [
     description: "Deep learning, computer vision architectures, large language models, and predictive algorithms.",
     icon: "Brain",
     items: [
-      { name: "YOLOv9 & YOLOv8", level: "Expert" },
-      { name: "LightGBM & CatBoost", level: "Expert" },
-      { name: "TensorFlow & PyTorch", level: "Advanced" },
-      { name: "Large Language Models (LLaMA)", level: "Advanced" },
-      { name: "RAG & Vector Search", level: "Advanced" },
+      { name: "YOLOv9 & YOLOv8", level: "Advanced" },
+      { name: "LightGBM & CatBoost", level: "Advanced" },
+      { name: "TensorFlow", level: "Advanced" },
+      { name: "Large Language Models (LLaMA)", level: "Intermediate" },
+      { name: "RAG & Vector Search", level: "Intermediate" },
       { name: "LDA Topic Modeling", level: "Advanced" },
-      { name: "Scikit-Learn & OpenCV", level: "Expert" }
+      { name: "Scikit-Learn & OpenCV", level: "Advanced" }
     ]
   },
   {
@@ -629,13 +629,12 @@ export const skillsMatrix = [
     description: "KPI architecture, data warehouse modeling, executive dashboards, and operational automation.",
     icon: "BarChart3",
     items: [
-      { name: "Power BI & Power Query", level: "Expert" },
-      { name: "Google Looker Studio", level: "Expert" },
+      { name: "Power BI & Power Query", level: "Advanced" },
+      { name: "Google Looker Studio", level: "Advanced" },
       { name: "ISDP ERP Platform", level: "Advanced" },
       { name: "SQL & Data Modeling", level: "Advanced" },
-      { name: "Python (Pandas, NumPy)", level: "Expert" },
-      { name: "Workflow Automation (n8n)", level: "Advanced" },
-      { name: "BRD & RIC Technical Docs", level: "Expert" }
+      { name: "Python (Pandas, NumPy)", level: "Advanced" },
+      { name: "Workflow Automation (n8n)", level: "Intermediate" }
     ]
   },
   {
@@ -643,11 +642,11 @@ export const skillsMatrix = [
     description: "API backends, web GIS, reactive user interfaces, and cloud architectures.",
     icon: "Code2",
     items: [
-      { name: "Python Flask APIs", level: "Advanced" },
-      { name: "PHP Laravel Framework", level: "Advanced" },
-      { name: "Streamlit Applications", level: "Expert" },
-      { name: "Leaflet JS / Web GIS", level: "Advanced" },
-      { name: "JavaScript / ES6+", level: "Advanced" },
+      { name: "Python", level: "Advanced" },
+      { name: "PHP Laravel Framework", level: "Intermediate" },
+      { name: "Streamlit Applications", level: "Advanced" },
+      { name: "Leaflet JS / Web GIS", level: "Intermediate" },
+      { name: "JavaScript / ES6+", level: "Intermediate" },
       { name: "Oracle Cloud Infrastructure (OCI)", level: "Certified" }
     ]
   },
@@ -657,8 +656,8 @@ export const skillsMatrix = [
     icon: "Compass",
     items: [
       { name: "Project Management (MSI Certified)", level: "Certified" },
-      { name: "Design Thinking & Crazy 8's", level: "Expert" },
-      { name: "Telecom SCM & SLA Governance", level: "Advanced" },
+      { name: "Design Thinking & Crazy 8's", level: "Advanced" },
+      { name: "Telco Project", level: "Advanced" },
       { name: "Scrum & Agile Sprint Cycles", level: "Advanced" },
       { name: "Subcontractor & Vendor Mgmt", level: "Advanced" },
       { name: "Scientific Writing (IEEE)", level: "Published" },

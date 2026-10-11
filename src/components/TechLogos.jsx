@@ -337,7 +337,7 @@ export function getTechLogo(techName, className = "w-3.5 h-3.5") {
   // Certifications, Standards & Enterprise Operations
   if (name.includes('ieee') || name.includes('scientific writing')) return <IEEELogo className={className} />;
   if (name.includes('msi') || name.includes('project management')) return <MSILogo className={className} />;
-  if (name.includes('telecom') || name.includes('scm') || name.includes('sla')) return <HuaweiLogo className={className} />;
+  if (name.includes('telecom') || name.includes('telco') || name.includes('scm') || name.includes('sla')) return <HuaweiLogo className={className} />;
 
   // Management & Methodologies
   if (name.includes('design thinking') || name.includes('crazy 8')) return <DesignThinkingLogo className={className} />;
