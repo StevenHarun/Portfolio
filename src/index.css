@@ -361,6 +361,68 @@
     );
     filter: drop-shadow(0 1px 8px rgba(107, 33, 168, 0.25));
   }
+
+  /* =========================================================
+     CONTACT SECTION 3D & KINETIC ANIMATIONS
+     ========================================================= */
+  @keyframes badge-float-3d {
+    0%, 100% {
+      transform: perspective(600px) translateY(0px) rotateX(0deg) rotateZ(0deg);
+    }
+    25% {
+      transform: perspective(600px) translateY(-5px) rotateX(6deg) rotateZ(0.8deg);
+    }
+    75% {
+      transform: perspective(600px) translateY(-2px) rotateX(-5deg) rotateZ(-0.8deg);
+    }
+  }
+
+  @keyframes spin-conic-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes text-3d-glow-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes float-subtle {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  .animate-badge-3d {
+    animation: badge-float-3d 5s ease-in-out infinite;
+  }
+
+  .animate-spin-conic {
+    animation: spin-conic-slow 8s linear infinite;
+  }
+
+  .animate-text-3d-flow {
+    background-size: 250% 250%;
+    animation: text-3d-glow-flow 6s ease-in-out infinite;
+  }
+
+  .animate-float-subtle {
+    animation: float-subtle 4s ease-in-out infinite;
+  }
 }
 
 

@@ -52,21 +52,120 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
   return (
     <section id="contact" className="max-w-7xl mx-auto px-3 sm:px-6 py-8 sm:py-20">
       
-      {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-        <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-2 border ${
-          darkMode ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-emerald-50 text-emerald-700 border-emerald-200'
-        }`}>
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>{t.badge}</span>
+      {/* 3D Kinetic Animated Header */}
+      <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        
+        {/* 1. 3D Kinetic Levitating "Get in Touch" Badge */}
+        <div className="relative inline-flex items-center justify-center group mb-4 select-none animate-badge-3d">
+          {/* Conic neon plasma aura spinning in background */}
+          <div className="absolute -inset-[2px] rounded-full bg-[conic-gradient(from_0deg,#10b981,#06b6d4,#6366f1,#a855f7,#10b981)] animate-spin-conic opacity-70 group-hover:opacity-100 blur-[3px] transition-opacity duration-500"></div>
+
+          {/* Elevated Glass Pill with Aceternity Beam Shine */}
+          <div className={`relative px-4 py-1.5 rounded-full text-xs font-bold tracking-wide flex items-center gap-2 border backdrop-blur-xl transition-all duration-300 group-hover:scale-105 overflow-hidden shadow-lg ${
+            darkMode 
+              ? 'bg-slate-900/90 text-emerald-300 border-emerald-500/40 shadow-emerald-950/50' 
+              : 'bg-white/95 text-emerald-700 border-emerald-400/50 shadow-emerald-200/50'
+          }`}>
+            {/* Beam sweep across pill */}
+            <div className="absolute inset-0 w-1/3 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 animate-beam-sweep pointer-events-none"></div>
+
+            {/* Pulsing/twinkling 3D Sparkle */}
+            <div className="relative flex items-center justify-center">
+              <Sparkles className="w-4 h-4 text-emerald-400 animate-spin" style={{ animationDuration: '6s' }} />
+              <span className="absolute w-2 h-2 rounded-full bg-emerald-400/40 animate-ping"></span>
+            </div>
+
+            <span className="tracking-wide relative z-10 font-bold">
+              {t.badge}
+            </span>
+
+            {/* Live radar dot */}
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+          </div>
         </div>
-        <h2 className={`text-2xl sm:text-4xl font-extrabold tracking-tight ${
-          darkMode ? 'text-white' : 'text-slate-900'
+
+        {/* 2. 3D Iridescent Holographic Headline: "Let's Build Something Exceptional" */}
+        <div className="relative mb-4">
+          {/* Ambient 3D Neon Aura Glow */}
+          <div className="absolute -inset-x-8 -inset-y-4 bg-gradient-to-r from-indigo-500/15 via-emerald-500/20 to-cyan-500/15 blur-3xl rounded-full pointer-events-none opacity-75 animate-pulse"></div>
+
+          <h2 className="relative text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+            {lang === 'id' ? (
+              <>
+                <span className={`inline-block transition-transform duration-300 hover:scale-105 ${
+                  darkMode ? 'text-white' : 'text-slate-900'
+                }`}>
+                  Mari Bangun Solusi yang{' '}
+                </span>
+                <span className="hero-shiny-aurora-ai animate-text-3d-flow inline-block relative px-1">
+                  Luar Biasa
+                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-500 rounded-full animate-pulse"></span>
+                </span>
+              </>
+            ) : (
+              <>
+                <span className={`inline-block transition-transform duration-300 hover:scale-105 ${
+                  darkMode ? 'text-white' : 'text-slate-900'
+                }`}>
+                  Let's Build Something{' '}
+                </span>
+                <span className="hero-shiny-aurora-ai animate-text-3d-flow inline-block relative px-1">
+                  Exceptional
+                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-500 rounded-full animate-pulse"></span>
+                </span>
+              </>
+            )}
+          </h2>
+        </div>
+
+        {/* 3. Kinetic Animated Subtitle with Interactive 3D Pillar Tags */}
+        <p className={`text-xs sm:text-sm md:text-base mt-2 max-w-2xl mx-auto leading-relaxed animate-float-subtle ${
+          darkMode ? 'text-slate-300' : 'text-slate-600'
         }`}>
-          {t.title}
-        </h2>
-        <p className={`text-xs sm:text-base mt-2 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-          {t.subtitle}
+          {lang === 'id' ? (
+            <>
+              Terbuka untuk peluang kolaborasi strategis di bidang{' '}
+              <span className="inline-block mx-0.5 px-2 py-0.5 rounded-lg text-[11px] sm:text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/25 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-indigo-500/20">
+                Data Science
+              </span>
+              ,{' '}
+              <span className="inline-block mx-0.5 px-2 py-0.5 rounded-lg text-[11px] sm:text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/25 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-cyan-500/20">
+                Machine Learning Engineering
+              </span>
+              ,{' '}
+              <span className="inline-block mx-0.5 px-2 py-0.5 rounded-lg text-[11px] sm:text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-emerald-500/20">
+                Enterprise Systems
+              </span>
+              , dan{' '}
+              <span className="inline-block mx-0.5 px-2 py-0.5 rounded-lg text-[11px] sm:text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/25 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-amber-500/20">
+                Project Controlling
+              </span>
+              .
+            </>
+          ) : (
+            <>
+              Open to strategic collaborations across{' '}
+              <span className="inline-block mx-0.5 px-2 py-0.5 rounded-lg text-[11px] sm:text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/25 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-indigo-500/20">
+                Data Science
+              </span>
+              ,{' '}
+              <span className="inline-block mx-0.5 px-2 py-0.5 rounded-lg text-[11px] sm:text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/25 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-cyan-500/20">
+                Machine Learning Engineering
+              </span>
+              ,{' '}
+              <span className="inline-block mx-0.5 px-2 py-0.5 rounded-lg text-[11px] sm:text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-emerald-500/20">
+                Enterprise Systems
+              </span>
+              , and{' '}
+              <span className="inline-block mx-0.5 px-2 py-0.5 rounded-lg text-[11px] sm:text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/25 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-amber-500/20">
+                Project Controlling
+              </span>
+              .
+            </>
+          )}
         </p>
       </div>
 
