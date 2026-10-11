@@ -16,10 +16,10 @@ export default function SkillsSection({ darkMode, lang = 'en' }) {
   const t = translations[lang]?.skills || translations.en.skills;
 
   return (
-    <section id="skills" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <section id="skills" className="max-w-7xl mx-auto px-3 sm:px-6 py-8 sm:py-16">
       
       {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
+      <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
         <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-2 border ${
           darkMode ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-emerald-50 text-emerald-700 border-emerald-200'
         }`}>
@@ -30,50 +30,50 @@ export default function SkillsSection({ darkMode, lang = 'en' }) {
         }`}>
           {t.title}
         </h2>
-        <p className={`text-sm sm:text-base mt-2 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+        <p className={`text-xs sm:text-base mt-2 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
           {t.subtitle}
         </p>
       </div>
 
       {/* 4-Column Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {skillsMatrix.map((category) => {
           const IconComponent = iconMap[category.icon] || Brain;
           
           return (
             <div
               key={category.category}
-              className={`rounded-3xl p-6 sm:p-7 h-full flex flex-col justify-between transition-all duration-300 border ${
+              className={`rounded-2xl sm:rounded-3xl p-4 sm:p-7 h-full flex flex-col justify-between transition-all duration-300 border ${
                 darkMode
                   ? 'bg-slate-900/80 border-slate-800/80 hover:border-slate-700 shadow-xl shadow-black/20'
                   : 'bg-white border-slate-200 hover:border-slate-300 shadow-md shadow-slate-200/50'
               }`}
             >
               <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`p-2.5 rounded-2xl shrink-0 ${
+                <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                  <div className={`p-2 sm:p-2.5 rounded-xl sm:rounded-2xl shrink-0 ${
                     darkMode ? 'bg-indigo-500/10 text-indigo-400' : 'bg-indigo-50 text-indigo-600'
                   }`}>
-                    <IconComponent className="w-5 h-5" />
+                    <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <h3 className={`text-base font-bold tracking-tight leading-snug min-h-[32px] flex items-center ${
+                  <h3 className={`text-sm sm:text-base font-bold tracking-tight leading-snug min-h-0 sm:min-h-[32px] flex items-center ${
                     darkMode ? 'text-white' : 'text-slate-900'
                   }`}>
                     {category.category}
                   </h3>
                 </div>
 
-                <p className={`text-xs leading-relaxed mb-5 min-h-[42px] ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+                <p className={`text-xs leading-relaxed mb-4 sm:mb-5 min-h-0 sm:min-h-[42px] ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                   {category.description}
                 </p>
 
-                <ul className="space-y-2.5">
+                <ul className="space-y-2 sm:space-y-2.5">
                   {category.items.map((skill) => {
                     const techLogo = getTechLogo(skill.name, "w-4 h-4 shrink-0");
                     return (
                       <li 
                         key={skill.name}
-                        className={`p-2.5 rounded-xl border flex items-center justify-between gap-2.5 text-xs transition-colors ${
+                        className={`p-2 sm:p-2.5 rounded-lg sm:rounded-xl border flex items-center justify-between gap-2.5 text-xs transition-colors ${
                           darkMode
                             ? 'bg-slate-800/40 border-slate-700/60 hover:bg-slate-800/80'
                             : 'bg-slate-50 border-slate-200 hover:bg-slate-100'

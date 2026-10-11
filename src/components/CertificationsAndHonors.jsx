@@ -28,12 +28,12 @@ export default function CertificationsAndHonors({ darkMode = true, lang = 'en' }
   const t = translations[lang]?.certifications || translations.en.certifications;
 
   return (
-    <section id="certifications" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <section id="certifications" className="max-w-7xl mx-auto px-3 sm:px-6 py-8 sm:py-16">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* Left Column: Certifications with Official Logos */}
-        <div className="lg:col-span-6 space-y-6">
-          <div className="min-h-[105px] sm:min-h-[95px] flex flex-col justify-start">
+        <div className="lg:col-span-6 space-y-4 sm:space-y-6">
+          <div className="min-h-0 lg:min-h-[95px] flex flex-col justify-start">
             <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-2 border w-fit ${
               darkMode ? 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' : 'bg-indigo-50 text-indigo-700 border-indigo-200'
             }`}>
@@ -50,28 +50,28 @@ export default function CertificationsAndHonors({ darkMode = true, lang = 'en' }
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3.5 sm:space-y-4">
             {certifications.map((cert) => {
               const LogoComp = certLogoMap[cert.issuer];
 
               return (
                 <div
                   key={cert.title}
-                  className={`rounded-2xl p-5 sm:p-6 border transition-all duration-300 hover:-translate-y-0.5 ${
+                  className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 border transition-all duration-300 hover:-translate-y-0.5 ${
                     darkMode
                       ? 'bg-slate-900/80 border-slate-800 shadow-lg shadow-black/20 hover:border-slate-700'
                       : 'bg-white border-slate-200 shadow-md shadow-slate-200/40 hover:border-indigo-200'
                   }`}
                 >
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <div className="flex items-start gap-3.5">
+                  <div className="flex items-start justify-between gap-3 sm:gap-4 mb-2.5 sm:mb-3">
+                    <div className="flex items-start gap-3 sm:gap-3.5">
                       {LogoComp ? (
-                        <div className={`w-14 h-12 rounded-xl px-2 py-1.5 flex items-center justify-center shrink-0 border transition-all ${
+                        <div className={`w-12 h-11 sm:w-14 sm:h-12 rounded-xl px-1.5 py-1 sm:px-2 sm:py-1.5 flex items-center justify-center shrink-0 border transition-all ${
                           darkMode 
                             ? 'bg-white/95 border-white/20 shadow-md shadow-black/20' 
                             : 'bg-white border-slate-200 shadow-sm'
                         }`}>
-                          <LogoComp className="max-h-7 max-w-[46px] w-auto h-auto object-contain" />
+                          <LogoComp className="max-h-6 sm:max-h-7 max-w-[42px] sm:max-w-[46px] w-auto h-auto object-contain" />
                         </div>
                       ) : (
                         <div className={`w-12 h-12 rounded-xl p-2 flex items-center justify-center shrink-0 border ${
@@ -118,8 +118,8 @@ export default function CertificationsAndHonors({ darkMode = true, lang = 'en' }
         </div>
 
         {/* Right Column: Honors & Global Recognition */}
-        <div className="lg:col-span-6 space-y-6">
-          <div className="min-h-[105px] sm:min-h-[95px] flex flex-col justify-start">
+        <div className="lg:col-span-6 space-y-4 sm:space-y-6">
+          <div className="min-h-0 lg:min-h-[95px] flex flex-col justify-start">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold mb-2 border border-amber-500/20 w-fit">
               <Award className="w-3.5 h-3.5" />
               <span>{t.honorsBadge}</span>
@@ -134,13 +134,13 @@ export default function CertificationsAndHonors({ darkMode = true, lang = 'en' }
             </p>
           </div>
 
-          <div className="space-y-3.5">
+          <div className="space-y-3 sm:space-y-3.5">
             {honorsAndAchievements.map((item) => {
               const Icon = iconMap[item.icon] || Award;
               return (
                 <div
                   key={item.title}
-                  className={`rounded-2xl p-4.5 sm:p-5 border transition-all duration-300 hover:-translate-y-0.5 ${
+                  className={`rounded-xl sm:rounded-2xl p-3.5 sm:p-5 border transition-all duration-300 hover:-translate-y-0.5 ${
                     darkMode
                       ? 'bg-slate-900/80 border-slate-800 shadow-lg shadow-black/20 hover:border-slate-700'
                       : 'bg-white border-slate-200 shadow-md shadow-slate-200/40 hover:border-amber-200'

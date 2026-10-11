@@ -36,10 +36,10 @@ export default function ExperienceTimeline({ darkMode = true, lang = 'en' }) {
   const t = translations[lang]?.experience || translations.en.experience;
 
   return (
-    <section id="timeline" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+    <section id="timeline" className="max-w-7xl mx-auto px-3 sm:px-6 py-8 sm:py-20">
       
       {/* Section Header */}
-      <div className="text-center max-w-3xl mx-auto mb-14">
+      <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-3">
           <Briefcase className="w-3.5 h-3.5" />
           <span>{t.badge}</span>
@@ -49,13 +49,13 @@ export default function ExperienceTimeline({ darkMode = true, lang = 'en' }) {
         }`}>
           {t.title}
         </h2>
-        <p className="text-sm sm:text-base text-slate-400 mt-2.5 leading-relaxed">
+        <p className="text-xs sm:text-base text-slate-400 mt-2 sm:mt-2.5 leading-relaxed">
           {t.subtitle}
         </p>
       </div>
 
       {/* 1. Corporate Experience Cards (Pertamina, Huawei, Bank BJB, Timedoor) */}
-      <div className="space-y-6 mb-16">
+      <div className="space-y-4 sm:space-y-6 mb-12 sm:mb-16">
         {professionalExperience
           .filter(item => 
             item.company.includes('Pertamina') || 
@@ -70,28 +70,28 @@ export default function ExperienceTimeline({ darkMode = true, lang = 'en' }) {
             return (
               <div
                 key={`${item.company}-${item.role}`}
-                className={`rounded-3xl p-6 sm:p-8 border transition-all duration-300 hover:-translate-y-1 ${
+                className={`rounded-2xl sm:rounded-3xl p-4 sm:p-8 border transition-all duration-300 hover:-translate-y-1 ${
                   darkMode
                     ? 'bg-slate-900/90 border-slate-800 shadow-xl shadow-black/30 hover:border-slate-700 hover:shadow-indigo-500/10'
                     : 'bg-white border-slate-200/90 shadow-md shadow-slate-200/50 hover:border-indigo-300'
                 }`}
               >
                 {/* Header: Company Logo, Role Title, Organization, and Period Pill */}
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-5 pb-5 border-b border-slate-700/40">
-                  <div className="flex items-start gap-4">
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 sm:gap-5 pb-4 sm:pb-5 border-b border-slate-700/40">
+                  <div className="flex items-start gap-3 sm:gap-4">
                     {/* High-fidelity Logo Container */}
-                    <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl p-2.5 flex items-center justify-center shrink-0 border ${
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl p-2 sm:p-2.5 flex items-center justify-center shrink-0 border ${
                       darkMode 
                         ? 'bg-white/95 border-white/20 shadow-md shadow-black/20' 
                         : 'bg-white border-slate-200 shadow-sm'
                     }`}>
-                      <LogoComponent className="w-10 h-10 object-contain" />
+                      <LogoComponent className="w-8 h-8 sm:w-10 sm:h-10 object-contain" />
                     </div>
 
                     <div>
                       {/* Category Tag & Status */}
-                      <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <span className="px-2.5 py-0.5 rounded-md text-xs font-semibold font-mono border bg-indigo-500/10 border-indigo-500/25 text-indigo-400">
+                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1">
+                        <span className="px-2 sm:px-2.5 py-0.5 rounded-md text-[11px] sm:text-xs font-semibold font-mono border bg-indigo-500/10 border-indigo-500/25 text-indigo-400">
                           {item.category}
                         </span>
                         {isCurrent && (
@@ -187,22 +187,22 @@ export default function ExperienceTimeline({ darkMode = true, lang = 'en' }) {
       </div>
 
       {/* 2. Academic Laboratory & University Leadership (Redesigned & Clean) */}
-      <div className={`rounded-3xl p-6 sm:p-9 border transition-all ${
+      <div className={`rounded-2xl sm:rounded-3xl p-4 sm:p-9 border transition-all ${
         darkMode 
           ? 'bg-slate-900/90 border-slate-800 shadow-2xl shadow-black/40' 
           : 'bg-white border-slate-200 shadow-xl shadow-slate-200/50'
       }`}>
         {/* Academic Header with Telkom Logo */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-700/40">
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-white/10 p-2 flex items-center justify-center shrink-0 border border-white/15 shadow-md">
-              <TelkomUniversityLogo className="w-10 h-10 object-contain" />
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 sm:pb-6 mb-5 sm:mb-8 border-b border-slate-700/40">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/10 p-1.5 sm:p-2 flex items-center justify-center shrink-0 border border-white/15 shadow-md">
+              <TelkomUniversityLogo className="w-8 h-8 sm:w-10 sm:h-10 object-contain" />
             </div>
             <div>
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-500/10 text-red-400 text-xs font-semibold font-mono mb-1">
                 <span>Telkom University Leadership</span>
               </div>
-              <h3 className={`text-xl sm:text-2xl font-bold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+              <h3 className={`text-lg sm:text-2xl font-bold tracking-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 {t.academicTitle}
               </h3>
               <p className="text-xs sm:text-sm text-slate-400">
@@ -211,7 +211,7 @@ export default function ExperienceTimeline({ darkMode = true, lang = 'en' }) {
             </div>
           </div>
 
-          <div className="shrink-0">
+          <div className="shrink-0 self-start sm:self-auto">
             <span className="px-3 py-1.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-mono font-semibold">
               650+ Students Taught
             </span>
@@ -219,14 +219,14 @@ export default function ExperienceTimeline({ darkMode = true, lang = 'en' }) {
         </div>
 
         {/* 4 Clean, Well-Spaced, Polished Grid Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-5">
           {academicAndLeadership.map((item, idx) => {
             const isLab = item.role.includes('Laboratory');
             
             return (
               <div
                 key={item.role}
-                className={`rounded-2xl p-5 sm:p-6 border transition-all duration-300 hover:-translate-y-1 h-full flex flex-col justify-between ${
+                className={`rounded-xl sm:rounded-2xl p-4 sm:p-6 border transition-all duration-300 hover:-translate-y-1 h-full flex flex-col justify-between ${
                   darkMode
                     ? 'bg-slate-800/40 border-slate-700/60 hover:bg-slate-800/70 hover:border-slate-600'
                     : 'bg-slate-50 border-slate-200 hover:bg-white hover:border-slate-300 shadow-sm'

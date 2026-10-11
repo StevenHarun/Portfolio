@@ -50,10 +50,10 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
   };
 
   return (
-    <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+    <section id="contact" className="max-w-7xl mx-auto px-3 sm:px-6 py-8 sm:py-20">
       
       {/* Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
+      <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
         <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-2 border ${
           darkMode ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-emerald-50 text-emerald-700 border-emerald-200'
         }`}>
@@ -65,18 +65,18 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
         }`}>
           {t.title}
         </h2>
-        <p className={`text-sm sm:text-base mt-2 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
+        <p className={`text-xs sm:text-base mt-2 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
           {t.subtitle}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
         
         {/* Left: Contact Info Cards */}
-        <div className="lg:col-span-5 space-y-4">
+        <div className="lg:col-span-5 space-y-3.5 sm:space-y-4">
           
           {/* Email Quick Card */}
-          <div className={`rounded-3xl p-6 border transition-all ${
+          <div className={`rounded-2xl sm:rounded-3xl p-4 sm:p-6 border transition-all ${
             darkMode 
               ? 'bg-slate-900/80 border-slate-800' 
               : 'bg-white border-slate-200 shadow-md shadow-slate-200/50'
@@ -118,7 +118,7 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
           </div>
 
           {/* WhatsApp & Phone Card */}
-          <div className={`rounded-3xl p-6 border transition-all ${
+          <div className={`rounded-2xl sm:rounded-3xl p-4 sm:p-6 border transition-all ${
             darkMode 
               ? 'bg-slate-900/80 border-slate-800' 
               : 'bg-white border-slate-200 shadow-md shadow-slate-200/50'
@@ -147,7 +147,7 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
               </button>
             </div>
             <div className="flex items-center justify-between gap-2">
-              <span className={`text-base font-bold font-mono ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+              <span className={`text-sm sm:text-base font-bold font-mono ${darkMode ? 'text-white' : 'text-slate-900'}`}>
                 {personalInfo.phone}
               </span>
               <a
@@ -163,20 +163,20 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
           </div>
 
           {/* Profiles Card */}
-          <div className={`rounded-3xl p-6 border ${
+          <div className={`rounded-2xl sm:rounded-3xl p-4 sm:p-6 border ${
             darkMode 
               ? 'bg-slate-900/80 border-slate-800' 
               : 'bg-white border-slate-200 shadow-md'
           }`}>
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-4">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-3 sm:mb-4">
               {t.directConnect}
             </span>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
               <a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-3.5 rounded-2xl border flex items-center justify-between transition hover:-translate-y-0.5 ${
+                className={`p-3 sm:p-3.5 rounded-xl sm:rounded-2xl border flex items-center justify-between transition hover:-translate-y-0.5 ${
                   darkMode 
                     ? 'bg-slate-800/40 border-slate-700/60 hover:bg-slate-800 text-slate-200' 
                     : 'bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-800'
@@ -190,7 +190,7 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-3.5 rounded-2xl border flex items-center justify-between transition hover:-translate-y-0.5 ${
+                className={`p-3 sm:p-3.5 rounded-xl sm:rounded-2xl border flex items-center justify-between transition hover:-translate-y-0.5 ${
                   darkMode 
                     ? 'bg-slate-800/40 border-slate-700/60 hover:bg-slate-800 text-slate-200' 
                     : 'bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-800'
@@ -206,7 +206,7 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
 
         {/* Right: Message Form */}
         <div className="lg:col-span-7">
-          <div className={`rounded-3xl p-6 sm:p-8 border ${
+          <div className={`rounded-2xl sm:rounded-3xl p-4 sm:p-8 border ${
             darkMode 
               ? 'bg-slate-900/90 border-slate-800 shadow-2xl shadow-black/30' 
               : 'bg-white border-slate-200 shadow-xl shadow-slate-200/50'

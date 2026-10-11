@@ -29,7 +29,7 @@ export default function AnimatedHeadline({ darkMode = true, lang = 'en' }) {
     <div className="relative select-none">
       {/* 1. Ambient Multi-Hue Studio Glow Backdrop (Aceternity background glow) */}
       <div 
-        className="absolute -inset-x-8 -top-10 -bottom-10 rounded-3xl opacity-50 dark:opacity-40 blur-3xl pointer-events-none -z-10 animate-pulse"
+        className="absolute -inset-x-2 sm:-inset-x-8 -top-6 sm:-top-10 -bottom-6 sm:-bottom-10 rounded-3xl opacity-50 dark:opacity-40 blur-3xl pointer-events-none -z-10 animate-pulse"
         style={{
           animationDuration: '7s',
           background: darkMode
@@ -39,7 +39,7 @@ export default function AnimatedHeadline({ darkMode = true, lang = 'en' }) {
       />
 
       {/* 2. Main High-Impact Typography Composition */}
-      <h1 className="text-3xl sm:text-5xl lg:text-[3.75rem] font-black tracking-tight leading-[1.12]">
+      <h1 className="text-2xl sm:text-5xl lg:text-[3.75rem] font-black tracking-tight leading-[1.2] sm:leading-[1.12]">
         {lang === 'id' ? (
           <>
             {/* Verb Anchor */}
@@ -48,15 +48,15 @@ export default function AnimatedHeadline({ darkMode = true, lang = 'en' }) {
             </span>
 
             {/* Pillar 1: AI & Vision with Magic UI Sparkles */}
-            <span className="relative inline-block whitespace-nowrap">
+            <span className="relative inline-block sm:whitespace-nowrap">
               {/* Sparkle Particles */}
-              <span className="absolute -top-3 -left-3 animate-sparkle-1 pointer-events-none">
+              <span className="absolute -top-2.5 -left-1.5 sm:-top-3 sm:-left-3 animate-sparkle-1 pointer-events-none">
                 <SparkleSVG size={14} color={darkMode ? '#38bdf8' : '#0284c7'} />
               </span>
-              <span className="absolute -top-4 right-2 animate-sparkle-2 pointer-events-none">
+              <span className="absolute -top-3.5 right-1 sm:-top-4 sm:right-2 animate-sparkle-2 pointer-events-none">
                 <SparkleSVG size={16} color={darkMode ? '#818cf8' : '#4f46e5'} />
               </span>
-              <span className="absolute -bottom-2.5 right-8 animate-sparkle-3 pointer-events-none">
+              <span className="absolute -bottom-2 right-4 sm:-bottom-2.5 sm:right-8 animate-sparkle-3 pointer-events-none">
                 <SparkleSVG size={12} color={darkMode ? '#fbbf24' : '#d97706'} />
               </span>
 
@@ -69,7 +69,7 @@ export default function AnimatedHeadline({ darkMode = true, lang = 'en' }) {
             <br className="hidden sm:inline" />
 
             {/* Pillar 2: Data Automation */}
-            <span className="relative inline-block whitespace-nowrap">
+            <span className="relative inline-block sm:whitespace-nowrap">
               <span className="hero-shiny-aurora-data">
                 Otomasi Data
               </span>
@@ -78,7 +78,7 @@ export default function AnimatedHeadline({ darkMode = true, lang = 'en' }) {
             <span className={`font-semibold ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}> &amp; </span>
 
             {/* Pillar 3: Enterprise Scale */}
-            <span className="relative inline-block whitespace-nowrap">
+            <span className="relative inline-block sm:whitespace-nowrap">
               <span className="hero-shiny-aurora-scale">
                 Skala Enterprise
               </span>
@@ -93,15 +93,15 @@ export default function AnimatedHeadline({ darkMode = true, lang = 'en' }) {
             </span>
 
             {/* Pillar 1: AI & Vision with Magic UI Sparkles */}
-            <span className="relative inline-block whitespace-nowrap">
+            <span className="relative inline-block sm:whitespace-nowrap">
               {/* Sparkle Particles */}
-              <span className="absolute -top-3 -left-3 animate-sparkle-1 pointer-events-none">
+              <span className="absolute -top-2.5 -left-1.5 sm:-top-3 sm:-left-3 animate-sparkle-1 pointer-events-none">
                 <SparkleSVG size={14} color={darkMode ? '#38bdf8' : '#0284c7'} />
               </span>
-              <span className="absolute -top-4 right-2 animate-sparkle-2 pointer-events-none">
+              <span className="absolute -top-3.5 right-1 sm:-top-4 sm:right-2 animate-sparkle-2 pointer-events-none">
                 <SparkleSVG size={16} color={darkMode ? '#818cf8' : '#4f46e5'} />
               </span>
-              <span className="absolute -bottom-2.5 right-8 animate-sparkle-3 pointer-events-none">
+              <span className="absolute -bottom-2 right-4 sm:-bottom-2.5 sm:right-8 animate-sparkle-3 pointer-events-none">
                 <SparkleSVG size={12} color={darkMode ? '#fbbf24' : '#d97706'} />
               </span>
 
@@ -114,7 +114,7 @@ export default function AnimatedHeadline({ darkMode = true, lang = 'en' }) {
             <br className="hidden sm:inline" />
 
             {/* Pillar 2: Data Automation */}
-            <span className="relative inline-block whitespace-nowrap">
+            <span className="relative inline-block sm:whitespace-nowrap">
               <span className="hero-shiny-aurora-data">
                 Data Automation
               </span>
@@ -123,7 +123,7 @@ export default function AnimatedHeadline({ darkMode = true, lang = 'en' }) {
             <span className={`font-semibold ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}> &amp; </span>
 
             {/* Pillar 3: Enterprise Scale */}
-            <span className="relative inline-block whitespace-nowrap">
+            <span className="relative inline-block sm:whitespace-nowrap">
               <span className="hero-shiny-aurora-scale">
                 Enterprise Scale
               </span>

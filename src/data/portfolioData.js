@@ -16,7 +16,7 @@ export const personalInfo = {
   github: "https://github.com/StevenHarun",
   englishScore: "EPRT: 510",
   photo: "/steven-harun-samba.jpg",
-  bio: "Information Systems graduate from Telkom University (GPA 3.60/4.00, B.Sc. / S.Kom.) with proven enterprise experience in multinational telecommunications (PT Huawei Tech Investment - Supply Chain & Project Controlling) and national energy operations (PT Pertamina Hulu Energi). Alumnus of Bangkit Academy led by Google, first author of published IEEE computer vision research (YOLOv9), certified Oracle Cloud Data Science Professional, and BNSP Associate Data Scientist.",
+  bio: "Information Systems graduate from Telkom University (GPA 3.60/4.00, B.Sc. / S.Kom.) with proven enterprise experience in national energy operations (PT Pertamina Hulu Energi), multinational telecommunications (PT Huawei Tech Investment - Supply Chain & Project Controlling), and regional banking analytics (PT Bank BJB, Tbk.). Alumnus of Bangkit Academy led by Google, first author of published IEEE computer vision research (YOLOv9), certified Oracle Cloud Data Science Professional, and BNSP Associate Data Scientist.",
   roles: [
     "Data Science & Analyst",
     "AI & Computer Vision Researcher",

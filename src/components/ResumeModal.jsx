@@ -81,24 +81,24 @@ export default function ResumeModal({
         }`}
       >
         {/* Top Header & Document Toolbar */}
-        <div className={`no-print px-4 sm:px-6 py-3.5 border-b flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0 ${
+        <div className={`no-print px-3.5 sm:px-6 py-3 border-b flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3 shrink-0 ${
           darkMode ? 'bg-slate-900/95 border-slate-800' : 'bg-white border-slate-200'
         }`}>
           {/* Document Title & Badge */}
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center shrink-0">
-              <FileCheck className="w-5 h-5" />
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center shrink-0">
+              <FileCheck className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className={`font-bold text-sm sm:text-base leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
-                  Steven Harun Samba • Curriculum Vitae
+                <h3 className={`font-bold text-xs sm:text-base leading-tight ${darkMode ? 'text-white' : 'text-slate-900'}`}>
+                  Steven Harun Samba • CV
                 </h3>
                 <span className="hidden md:inline-flex px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   ATS Official (2 Pages)
                 </span>
               </div>
-              <p className="text-[11px] text-slate-400 font-mono">
+              <p className="text-[10px] sm:text-[11px] text-slate-400 font-mono">
                 Steven_Harun_Samba_CV_ATS.pdf (224 KB)
               </p>
             </div>
@@ -205,7 +205,7 @@ export default function ResumeModal({
             <button
               onClick={handlePrint}
               type="button"
-              className={`p-2 rounded-xl border transition ${
+              className={`hidden sm:inline-flex p-2 rounded-xl border transition ${
                 darkMode 
                   ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700' 
                   : 'bg-white hover:bg-slate-100 text-slate-700 border-slate-200'
@@ -232,7 +232,7 @@ export default function ResumeModal({
         </div>
 
         {/* Document Body Area */}
-        <div className={`flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 transition-all ${
+        <div className={`flex-1 overflow-y-auto p-2.5 sm:p-6 md:p-8 transition-all ${
           darkMode ? 'bg-slate-950/80' : 'bg-slate-200/60'
         }`}>
           {viewFormat === 'pdf' ? (

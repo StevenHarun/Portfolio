@@ -56,6 +56,14 @@
 }
 
 @layer utilities {
+  /* Hide scrollbar for mobile swipeable ribbons */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
   .mesh-bg-dark {
     background-color: #090a0f;
     background-image: 

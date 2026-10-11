@@ -28,13 +28,13 @@ export default function ProjectModal({ project, onClose, darkMode = true, lang =
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-6 bg-black/80 backdrop-blur-md animate-fadeIn">
       {/* Click outside backdrop */}
       <div className="absolute inset-0" onClick={onClose}></div>
 
       {/* Modal Dialog Content */}
       <div 
-        className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-8 transition-all border shadow-2xl z-10 ${
+        className={`relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl p-4 sm:p-8 transition-all border shadow-2xl z-10 ${
           darkMode 
             ? 'bg-slate-900 border-slate-800 text-slate-100 shadow-indigo-500/10' 
             : 'bg-white border-slate-200 text-slate-900 shadow-slate-300'

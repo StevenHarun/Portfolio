@@ -41,10 +41,10 @@ export default function ProjectsShowcase({
   });
 
   return (
-    <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <section id="projects" className="max-w-7xl mx-auto px-3 sm:px-6 py-8 sm:py-16">
       
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-10">
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-semibold mb-2">
             <Sparkles className="w-3.5 h-3.5" />
@@ -55,15 +55,15 @@ export default function ProjectsShowcase({
           }`}>
             {t.title}
           </h2>
-          <p className={`text-sm sm:text-base mt-2 max-w-2xl ${
+          <p className={`text-xs sm:text-base mt-2 max-w-2xl ${
             darkMode ? 'text-slate-400' : 'text-slate-600'
           }`}>
             {t.subtitle}
           </p>
         </div>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap gap-2 text-xs">
+        {/* Category Filters (Swipeable Ribbon on Mobile) */}
+        <div className="flex overflow-x-auto no-scrollbar gap-2 text-xs -mx-3 px-3 sm:mx-0 sm:px-0 py-1 sm:flex-wrap shrink-0">
           {projectCategories.map((cat) => {
             const count = cat.id === 'all' 
               ? projects.length 
@@ -76,7 +76,7 @@ export default function ProjectsShowcase({
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 type="button"
-                className={`px-3.5 py-2 rounded-xl font-semibold transition-all duration-200 border flex items-center gap-1.5 ${
+                className={`px-3 sm:px-3.5 py-2 rounded-xl font-semibold transition-all duration-200 border flex items-center gap-1.5 shrink-0 whitespace-nowrap ${
                   isActive
                     ? 'bg-indigo-600 border-indigo-500 text-white shadow-lg shadow-indigo-600/30'
                     : darkMode
@@ -97,14 +97,14 @@ export default function ProjectsShowcase({
       </div>
 
       {/* Clean, Balanced Project Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {filteredProjects.map((project) => {
           const ProjectLogo = projectLogoMap[project.id];
 
           return (
             <div
               key={project.id}
-              className={`rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 border group hover:-translate-y-1 relative overflow-hidden ${
+              className={`rounded-2xl sm:rounded-3xl p-4.5 sm:p-7 flex flex-col justify-between transition-all duration-300 border group hover:-translate-y-1 relative overflow-hidden ${
                 darkMode
                   ? 'bg-slate-900/80 border-slate-800/80 hover:border-indigo-500/40 shadow-xl shadow-black/30'
                   : 'bg-white border-slate-200/90 hover:border-indigo-300 shadow-md shadow-slate-200/50'
@@ -203,15 +203,15 @@ export default function ProjectsShowcase({
               </div>
 
               {/* Bottom Card Action */}
-              <div className="pt-6 mt-6 border-t border-slate-700/40 flex items-center justify-between gap-3">
-                <span className="text-[11px] text-slate-400 truncate">
+              <div className="pt-4 sm:pt-6 mt-4 sm:mt-6 border-t border-slate-700/40 flex items-center justify-between gap-2.5">
+                <span className="text-[11px] text-slate-400 truncate min-w-0">
                   {t.rolePrefix} <strong className={darkMode ? 'text-slate-300' : 'text-slate-700'}>{project.role}</strong>
                 </span>
 
                 <button
                   onClick={() => onSelectProject(project)}
                   type="button"
-                  className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition shadow-md shadow-indigo-600/20"
+                  className="inline-flex items-center gap-1 px-3 sm:px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition shadow-md shadow-indigo-600/20 shrink-0"
                 >
                   <span>{t.viewCaseStudy}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

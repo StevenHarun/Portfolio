@@ -59,7 +59,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 font-sans relative ${
+    <div className={`min-h-screen w-full overflow-x-hidden transition-colors duration-300 font-sans relative ${
       darkMode ? 'mesh-bg-dark text-slate-100' : 'mesh-bg-light text-slate-900'
     }`}>
       {/* Zero-Lag Background Ambient Glow (GPU-Accelerated, sits behind content) */}
