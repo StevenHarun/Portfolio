@@ -363,23 +363,23 @@
   }
 
   /* =========================================================
-     SHOOTING STAR ("BINTANG JATUH") BADGE ANIMATIONS
-     A glowing meteor / star passes smoothly across the badge
+     DIAGONAL METEOR ("METEOR JATUH DIAGONAL") ANIMATIONS
+     A glowing meteor swooshes diagonally across the star & badge
      ========================================================= */
-  @keyframes shooting-star-pass {
+  @keyframes meteor-diagonal-pass {
     0% {
-      left: -60%;
+      transform: translate(-100px, -45px) rotate(-26deg);
       opacity: 0;
     }
-    6% {
+    8% {
       opacity: 1;
     }
-    42% {
-      left: 135%;
+    38% {
+      transform: translate(240px, 75px) rotate(-26deg);
       opacity: 1;
     }
-    47%, 100% {
-      left: 135%;
+    43%, 100% {
+      transform: translate(240px, 75px) rotate(-26deg);
       opacity: 0;
     }
   }
@@ -390,8 +390,8 @@
       filter: drop-shadow(0 0 2px rgba(52, 211, 153, 0.5));
     }
     50% {
-      transform: scale(1.22);
-      filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.95)) drop-shadow(0 0 14px rgba(6, 182, 212, 0.6));
+      transform: scale(1.25);
+      filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.95)) drop-shadow(0 0 16px rgba(6, 182, 212, 0.7));
     }
   }
 
@@ -404,8 +404,8 @@
     }
   }
 
-  .animate-shooting-star {
-    animation: shooting-star-pass 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  .animate-meteor-diagonal {
+    animation: meteor-diagonal-pass 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
   .animate-star-twinkle {

@@ -66,15 +66,16 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
               ? 'bg-slate-900/85 text-emerald-300 border-emerald-500/30 shadow-[0_0_15px_-3px_rgba(16,185,129,0.25)]' 
               : 'bg-white/95 text-emerald-800 border-emerald-400/40 shadow-[0_0_15px_-3px_rgba(16,185,129,0.15)]'
           }`}>
-            {/* Shooting Star ("Bintang Jatuh") passing across the text */}
-            <div className="absolute inset-y-0 w-full pointer-events-none overflow-hidden">
-              <div className="animate-shooting-star absolute top-1/2 -translate-y-1/2 flex items-center pointer-events-none">
-                {/* Comet Trail */}
-                <div className="w-16 sm:w-24 h-[1.5px] bg-gradient-to-r from-transparent via-emerald-400/70 to-white" />
-                {/* Star Core (Bintang Inti) with Diamond Flare */}
-                <div className="relative -ml-0.5">
-                  <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_2px_#34d399]" />
-                  <div className="absolute -inset-0.5 bg-emerald-300/60 blur-[1px] rounded-full" />
+            {/* Diagonal Meteor ("Meteor Jatuh Diagonal Melintasi Logo Bintang") */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-full">
+              <div className="animate-meteor-diagonal absolute top-1/2 left-0 flex items-center pointer-events-none">
+                {/* Luminous Comet Tail */}
+                <div className="w-20 sm:w-28 h-[2px] bg-gradient-to-r from-transparent via-emerald-400/80 to-white shadow-[0_0_8px_#34d399]" />
+                {/* Meteor Head with Diamond Star Core */}
+                <div className="relative -ml-1 flex items-center justify-center">
+                  <div className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_12px_3px_#34d399]" />
+                  <div className="absolute w-3.5 h-0.5 bg-white blur-[0.3px]" />
+                  <div className="absolute w-0.5 h-3.5 bg-white blur-[0.3px]" />
                 </div>
               </div>
             </div>
