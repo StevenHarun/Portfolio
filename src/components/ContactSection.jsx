@@ -54,19 +54,125 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
       
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-        <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-2 border ${
-          darkMode ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-emerald-50 text-emerald-700 border-emerald-200'
-        }`}>
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>{t.badge}</span>
+        
+        {/* 1. "Get in Touch" Badge with Shooting Star ("Bintang Jatuh") */}
+        <div className="relative inline-flex items-center justify-center mb-3 sm:mb-4 select-none group">
+          {/* Ambient Soft Aura Behind Badge */}
+          <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-teal-500/20 blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+          {/* Pill Badge Surface */}
+          <div className={`relative px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide flex items-center gap-2 border backdrop-blur-xl transition-all duration-300 group-hover:scale-105 overflow-hidden ${
+            darkMode 
+              ? 'bg-slate-900/85 text-emerald-300 border-emerald-500/30 shadow-[0_0_15px_-3px_rgba(16,185,129,0.25)]' 
+              : 'bg-white/95 text-emerald-800 border-emerald-400/40 shadow-[0_0_15px_-3px_rgba(16,185,129,0.15)]'
+          }`}>
+            {/* Shooting Star ("Bintang Jatuh") passing across the text */}
+            <div className="absolute inset-y-0 w-full pointer-events-none overflow-hidden">
+              <div className="animate-shooting-star absolute top-1/2 -translate-y-1/2 flex items-center pointer-events-none">
+                {/* Comet Trail */}
+                <div className="w-16 sm:w-24 h-[1.5px] bg-gradient-to-r from-transparent via-emerald-400/70 to-white" />
+                {/* Star Core (Bintang Inti) with Diamond Flare */}
+                <div className="relative -ml-0.5">
+                  <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_2px_#34d399]" />
+                  <div className="absolute -inset-0.5 bg-emerald-300/60 blur-[1px] rounded-full" />
+                </div>
+              </div>
+            </div>
+
+            {/* Twinkling Star Icon on the left */}
+            <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-star-twinkle relative z-10" />
+
+            {/* Text: strictly "Get in Touch" */}
+            <span className="relative z-10 font-bold tracking-tight">
+              {t.badge}
+            </span>
+          </div>
         </div>
-        <h2 className={`text-2xl sm:text-4xl font-extrabold tracking-tight ${
-          darkMode ? 'text-white' : 'text-slate-900'
-        }`}>
-          {t.title}
+
+        {/* 2. Headline: "Let's Build Something Exceptional" */}
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3 sm:mb-4">
+          {lang === 'id' ? (
+            <>
+              <span className={darkMode ? 'text-white' : 'text-slate-900'}>
+                Mari Bangun Solusi yang{' '}
+              </span>
+              <span className="relative inline-block mt-1 sm:mt-0">
+                <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent animate-aurora-text drop-shadow-[0_2px_14px_rgba(16,185,129,0.35)]">
+                  Luar Biasa
+                </span>
+                {/* Glowing Horizon Underline */}
+                <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent rounded-full shadow-[0_0_8px_#34d399]" />
+              </span>
+            </>
+          ) : (
+            <>
+              <span className={darkMode ? 'text-white' : 'text-slate-900'}>
+                Let's Build Something{' '}
+              </span>
+              <span className="relative inline-block mt-1 sm:mt-0">
+                <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent animate-aurora-text drop-shadow-[0_2px_14px_rgba(16,185,129,0.35)]">
+                  Exceptional
+                </span>
+                {/* Glowing Horizon Underline */}
+                <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent rounded-full shadow-[0_0_8px_#34d399]" />
+              </span>
+            </>
+          )}
         </h2>
-        <p className={`text-xs sm:text-base mt-2 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-          {t.subtitle}
+
+        {/* 3. Subtitle: Styled with highlighted discipline badges */}
+        <p className={`text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed ${
+          darkMode ? 'text-slate-300' : 'text-slate-600'
+        }`}>
+          {lang === 'id' ? (
+            <>
+              Terbuka untuk kolaborasi di bidang{' '}
+              <span className="inline-flex items-center gap-1 mx-0.5 px-2 py-0.5 rounded-lg text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/25 transition-all hover:bg-indigo-500/20 hover:scale-105 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                Data Science
+              </span>
+              ,{' '}
+              <span className="inline-flex items-center gap-1 mx-0.5 px-2 py-0.5 rounded-lg text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/25 transition-all hover:bg-cyan-500/20 hover:scale-105 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                Machine Learning Engineering
+              </span>
+              ,{' '}
+              <span className="inline-flex items-center gap-1 mx-0.5 px-2 py-0.5 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 transition-all hover:bg-emerald-500/20 hover:scale-105 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                Enterprise Systems
+              </span>
+              , dan{' '}
+              <span className="inline-flex items-center gap-1 mx-0.5 px-2 py-0.5 rounded-lg text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/25 transition-all hover:bg-amber-500/20 hover:scale-105 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                Project Controlling
+              </span>
+              .
+            </>
+          ) : (
+            <>
+              Open to strategic collaborations across{' '}
+              <span className="inline-flex items-center gap-1 mx-0.5 px-2 py-0.5 rounded-lg text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/25 transition-all hover:bg-indigo-500/20 hover:scale-105 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                Data Science
+              </span>
+              ,{' '}
+              <span className="inline-flex items-center gap-1 mx-0.5 px-2 py-0.5 rounded-lg text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/25 transition-all hover:bg-cyan-500/20 hover:scale-105 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                Machine Learning Engineering
+              </span>
+              ,{' '}
+              <span className="inline-flex items-center gap-1 mx-0.5 px-2 py-0.5 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 transition-all hover:bg-emerald-500/20 hover:scale-105 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                Enterprise Systems
+              </span>
+              , and{' '}
+              <span className="inline-flex items-center gap-1 mx-0.5 px-2 py-0.5 rounded-lg text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/25 transition-all hover:bg-amber-500/20 hover:scale-105 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                Project Controlling
+              </span>
+              .
+            </>
+          )}
         </p>
       </div>
 
