@@ -9,7 +9,8 @@ import {
   Send, 
   ExternalLink,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Loader2
 } from 'lucide-react';
 
 export default function ContactSection({ darkMode, lang = 'en', showToast }) {
@@ -21,6 +22,7 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
   const t = translations[lang]?.contact || translations.en.contact;
 
   const handleCopy = (text, type) => {
@@ -30,7 +32,7 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
     setTimeout(() => setCopiedType(null), 2500);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       showToast(t.fillRequired);
@@ -38,15 +40,67 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      showToast(lang === 'id' ? 'Terima kasih! Pesan telah disiapkan.' : 'Thank you! Your message inquiry has been prepared.');
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${personalInfo.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _subject: `[Portfolio] ${formData.subject || 'Pesan Baru dari ' + formData.name}`,
+          subject: formData.subject || 'Executive Portfolio Inquiry',
+          message: formData.message,
+          _replyto: formData.email,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success !== 'false') {
+        setSubmitStatus('success');
+        showToast(
+          lang === 'id' 
+            ? 'Pesan berhasil dikirim langsung ke email Steven!' 
+            : 'Message delivered directly to Steven\'s email!'
+        );
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else if (data.message && data.message.includes('Activation')) {
+        setSubmitStatus('activation_needed');
+        showToast(
+          lang === 'id'
+            ? 'Pesan siap dikirim! Cek email aktivasi FormSubmit di inbox Anda.'
+            : 'Message queued! Please check the one-time FormSubmit activation in your inbox.'
+        );
+        // Fallback open mailto
+        const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(formData.subject || 'Executive Portfolio Inquiry')}&body=${encodeURIComponent(
+          `From: ${formData.name} (${formData.email})\n\n${formData.message}`
+        )}`;
+        window.open(mailtoLink, '_blank');
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      console.error('Direct email dispatch failed:', err);
+      setSubmitStatus('error');
+      showToast(
+        lang === 'id'
+          ? 'Membuka aplikasi email untuk mengirim pesan...'
+          : 'Opening your email client to send message...'
+      );
       const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(formData.subject || 'Executive Portfolio Inquiry')}&body=${encodeURIComponent(
         `From: ${formData.name} (${formData.email})\n\n${formData.message}`
       )}`;
       window.open(mailtoLink, '_blank');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 600);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -403,13 +457,63 @@ export default function ContactSection({ darkMode, lang = 'en', showToast }) {
                 ></textarea>
               </div>
 
+              {/* Status Feedback Banners */}
+              {submitStatus === 'success' && (
+                <div className="p-3.5 rounded-xl border border-emerald-500/40 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm flex items-start gap-2.5">
+                  <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-emerald-500" />
+                  <div>
+                    <p className="font-bold">
+                      {lang === 'id' ? 'Pesan Berhasil Terkirim!' : 'Message Delivered Successfully!'}
+                    </p>
+                    <p className="text-[11px] sm:text-xs opacity-90 mt-0.5">
+                      {lang === 'id' 
+                        ? `Pesan telah dikirim langsung ke ${personalInfo.email}. Steven akan segera merespons Anda.` 
+                        : `Your message has been delivered directly to ${personalInfo.email}. Steven will reply shortly.`}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {submitStatus === 'activation_needed' && (
+                <div className="p-3.5 rounded-xl border border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300 text-xs sm:text-sm flex items-start gap-2.5">
+                  <Sparkles className="w-4 h-4 mt-0.5 flex-shrink-0 text-amber-500" />
+                  <div>
+                    <p className="font-bold">
+                      {lang === 'id' ? 'Aktivasi Pengiriman Langsung Diperlukan' : 'One-Time Delivery Activation Required'}
+                    </p>
+                    <p className="text-[11px] sm:text-xs opacity-90 mt-0.5">
+                      {lang === 'id' 
+                        ? `FormSubmit telah mengirimkan email aktivasi ke ${personalInfo.email}. Buka Gmail Anda dan klik "Activate Form" sekali saja agar semua pesan form berikutnya otomatis masuk langsung.` 
+                        : `FormSubmit sent a verification email to ${personalInfo.email}. Please click "Activate Form" once in your inbox to enable automated delivery.`}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="p-3 rounded-xl border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs">
+                  {lang === 'id'
+                    ? `Aplikasi email Anda telah disiapkan untuk mengirim pesan langsung ke ${personalInfo.email}.`
+                    : `Your email client has been opened to send this message directly to ${personalInfo.email}.`}
+                </div>
+              )}
+
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:brightness-110 text-white font-semibold text-sm transition shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 active:scale-98 disabled:opacity-50"
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-500 hover:brightness-110 text-white font-semibold text-sm transition shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 active:scale-98 disabled:opacity-50 cursor-pointer"
               >
-                <Send className="w-4 h-4" />
-                <span>{isSubmitting ? t.submitting : t.sendBtn}</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>{t.submitting}</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>{t.sendBtn}</span>
+                  </>
+                )}
               </button>
             </form>
           </div>
